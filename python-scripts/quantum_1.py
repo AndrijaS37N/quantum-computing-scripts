@@ -9,10 +9,12 @@ c = ClassicalRegister(2)
 # put the initiated registers onto the circuit
 qc = QuantumCircuit(q, c)
 
+# gate placement
 qc.h(q[1])
 qc.cx(q[0], q[1])
 qc.measure(q, c)
 
+# testing on a simulator not on a real quantum machine
 job_sim = execute(qc, "local_qasm_simulator")
 sim_result = job_sim.result()
 
